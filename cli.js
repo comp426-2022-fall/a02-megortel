@@ -40,6 +40,15 @@ if(args.t){
     timezone = args.t
 }
 
+const precipation = data.daily.precipitation_hours[day];
+
+if(precipation == 0){
+        console.log("You will not need your galoshes ");
+}
+else{
+        console.log("You will need your galoshes ");
+} 
+
 // Make a request
 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=' + latitude + '&longitude=' + longitude + '&hourly=temperature_2m&current_weather=true&timezone=' + timezone);
 
