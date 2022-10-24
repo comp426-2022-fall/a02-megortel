@@ -33,7 +33,6 @@ if(args.j){
 	process.exit(0);
 }
 
-const days = args.d 
 
 const precipation = data.daily.precipitation_hours[day];
 
