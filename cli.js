@@ -4,8 +4,6 @@ import moment from 'moment-timezone';
 import fetch from 'node-fetch';
 
 const args = minimist(process.argv.slice(2));
-let timezone = args.z ? args.z:moment.tz.guess();
-var day = args.d ? args.d : 1; 
 
 if(args.h){
     console.log(` 
@@ -18,10 +16,12 @@ if(args.h){
             -j            Echo pretty JSON from open-meteo API and exit.
     `)
 }
-    
 
-let latitude = args.n || (args.s * -1); 
-let longitude = args.e || (args.w * -1);
+var day = args.d ? args.d : 1; 
+var latitude = args.n || (args.s * -1); 
+var longitude = args.e || (args.w * -1);
+const timezone = args.z ? args.z:moment.tz.guess();
+
 
 
 // Make a request
@@ -44,11 +44,14 @@ else{
         console.log("You will need your galoshes ");
 } 
 
-if (day == 0) {
+
+const days = args.d; 
+if (days == 0) {
   console.log("today.")
-} else if (day > 1) {
+} else if (days > 1) {
   console.log("in " + day + " days.")
 } else {
   console.log("tomorrow.")
 }
+
 console.log(data);
