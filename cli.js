@@ -5,6 +5,7 @@ import fetch from 'node-fetch';
 
 const args = minimist(process.argv.slice(2));
 let timezone = moment.tz.guess();
+var day = args.d ? args.d : 1; 
 
 if(args.h){
     console.log(` 
@@ -48,7 +49,7 @@ const days = args.d
 
 if (days == 0) {
   console.log("today.")
-} else if (days >= 2 && days <= 6) {
+} else if (day >= 2 && days <= 6) {
   console.log("in " + days + " days.")
 } else {
   console.log("tomorrow.")
