@@ -49,8 +49,8 @@ const days = args.d
 
 if (days == 0) {
   console.log("today.")
-} else if (day >= 2 && days <= 6) {
-  console.log("in " + days + " days.")
+} else if (days > 1) {
+  console.log("in " + day + " days.")
 } else {
   console.log("tomorrow.")
 }
